@@ -1,0 +1,21 @@
+<template >
+    <lightning-card title="Account List" icon-name="custom:custom63" > <br/>
+        <div class="slds-m-around_medium" style="width: auto;">
+            <template if:true={data}>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <span><p style="margin-left: 5%">Selected Records: <b style="color:red;">{recordsCount}</b></p></span>
+                    </div>
+                    <div class="slds-col">
+                        <span>                    
+                            <lightning-button label="Delete Accounts" icon-name="utility:delete" disabled={isTrue} draft-values={draftValues} variant="destructive"  style="margin-left: 40%" onclick={deleteAccounts}></lightning-button>
+                        </span>
+                    </div>
+                </div>
+                <br/>
+                <lightning-datatable data={data} columns={columns} key-field="Id" onsave={handleSave} onrowselection={getSelectedRecords}></lightning-datatable>
+                
+            </template>
+        </div>
+    </lightning-card>       
+</template>
